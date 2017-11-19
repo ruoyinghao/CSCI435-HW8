@@ -20,11 +20,12 @@ In this repository you can see the following files
 <h3>Linking AngularJS</h3>
 First, in order to let AngularJS run on the web page, you have to make the web page
 aware of the presence of AngularJS. A simple way to do this without storing a .js
-file locally is to provide HTML with an external link to a script file in a `<script>` tag.
+file locally is to provide HTML with an external link to a script file in a`<script>`tag.
 <br />
 <br />
 To accomplish this, add the following line between the `<head>` tags. Preferably
-after the `<title>` tag.
+after the `title` tag.
+
 ```
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
 ```
@@ -35,6 +36,7 @@ Typically `ng-app` is placed in the root element of the page, so we define the b
 <br />
 <br />
 Modify the `<body>` tag to the following:
+
 ```
 <body ng-app="TableFilterApp">
 ```
@@ -43,6 +45,7 @@ Modify the `<body>` tag to the following:
 Another critical AngularJS component is the controller, which controls the application,
 and it is defined by the directive `np-controller`. Typically, a controller is responsible
 for a single view. We define a controller in the `<body>` tag:
+
 ```
 <body ng-app="TableFilterApp" ng-controller="TableFilterController">
 ```
@@ -53,6 +56,7 @@ we can have our input displayed instantly on the web page. To do this we need
 to define a model that binds the input value with a JavaScript variable, the value of the
 variable will be displayed on the page.
 To define a model, simply define it in an `<input>` tag:
+
 ```
 <input type='text' ng-model='inputValue' />
 ```
@@ -62,6 +66,7 @@ In HTML, JavaScript is located in between  `<script>` tags. Place the script in 
 Sometimes you may want to place the script in a different element,
 check out this [stackoverflow answer](https://stackoverflow.com/questions/3531314/should-i-write-script-in-the-body-or-the-head-of-the-html)
 to get an idea about where to put a script. 
+
 ```
 <script>
   angular.module('TableFilterApp', [])
@@ -80,6 +85,7 @@ To generate a table of Computer Science classes and their information, first we 
 In our tutorial the data is stored locally, in production you will often need to retrieve it from a database
 or use a provided API. We use AngularJS's `$http` service to accomplish this.
 Add the following to the JavaScript you've written, before:
+
 ```
 $http.get('class.json')
       .then(function(res){
@@ -92,6 +98,7 @@ __The code above should be located below `$scope.inputValue = "";`__
 <br />
 You will also need to add `$http` service as a function parameter, so your JavaScript controller
 should look like the following:
+
 ```
 .controller('TableFilterController', function($scope, $http) {
     //already written code
@@ -105,6 +112,7 @@ We have connected JSON file with HTML, now it is time to display them in a table
 The table will have a list of headers, a list of input boxes so that we can search
 and apply filters, and, of course, the course information. 
 Create an HTML table by writing this code in the body:
+
 ```
 <table>
 <tr>
